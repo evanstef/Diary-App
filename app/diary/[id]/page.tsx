@@ -7,7 +7,6 @@ import { supabase } from '@/utils/supabase'
 import { useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import React from 'react'
-import { isSignedIn } from '@/app/hooks/isSignIn'
 import { currentUser } from '@clerk/nextjs/server'
 
 type ParamsProps = {

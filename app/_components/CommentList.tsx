@@ -1,5 +1,5 @@
 
-import { supabase } from '@/utils/supabase'
+import { Comments, supabase } from '@/utils/supabase'
 import { currentUser } from '@clerk/nextjs/server'
 import Image from 'next/image'
 import React from 'react'
@@ -21,10 +21,10 @@ const CommentList = async ({diary_id} : ParamsProps) => {
   return  (
     <div className='flex flex-col gap-4'>
         <div className='divider'></div>
-        {data?.comments?.map((comment : any) => {
+        {data?.comments?.map((comment : Comments) => {
             return (
-                <div className='ml-4 bg-base-200 card card-body card-bordered mb-4 rounded-lg'>
-                    <Image className='rounded-full bg-red-500' src={comment.avatar} alt={comment.avatar} width={50} height={50} />
+                <div key={comment.comment_id} className='ml-4 bg-base-200 card card-body card-bordered mb-4 rounded-lg'>
+                    <Image className='rounded-full bg-red-500' src={comment.avatar as string} alt={comment.avatar as string} width={50} height={50} />
                     <p>Comment : {comment.content}</p>
                     <p className='italic'>From : {comment.username || comment.email}</p>
                 </div>
