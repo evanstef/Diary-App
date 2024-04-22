@@ -29,8 +29,8 @@ const page = async ({params} : ParamsProps) => {
   return (
     <Wrapper title='Detail Diary'>
       <div className='flex justify-center gap-11 items-center mb-10'>
-          <Image className='rounded-lg' src={data.avatar} alt={data.avatar} width={300} height={300} />
-        <div className='text-xl'>
+          <Image className='rounded-lg w-28 h-28 md:w-72 md:h-72' src={data.avatar} alt={data.avatar} width={300} height={300} />
+        <div className='md:text-xl'>
           <p>Tanggal  : posted at {posted_at}</p>
           <p>Name     : <i>~ {data.username || data.email}</i></p>
           <p>Content  : {data.content}</p>

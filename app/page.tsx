@@ -15,8 +15,8 @@ export default async function Home () {
       <Wrapper title="The Diary App">
         <HomeMenu />
         <div className="divider mt-5"></div>
-        <h1 className="text-center font-bold text-xl my-10">All Users Diary</h1>
-        {data?.length ? <CardDiarys /> : <h1 className="text-center text-xl font-bold md:text-4xl">No Diary Data Found Please Sign In To Create Diary</h1>}
+          <h1 className="text-center font-bold text-xl my-10">All Users Diary</h1>
+          {data?.length ? <CardDiarys /> : <h1 className="text-center text-xl font-bold md:text-4xl">No Diary Data Found Please Sign In To Create Diary</h1>} 
       </Wrapper>
 
   );

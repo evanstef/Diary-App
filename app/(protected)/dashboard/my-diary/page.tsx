@@ -18,7 +18,8 @@ const MyDiary = async () => {
   return (
     <Wrapper title='My Diary'>
       <div className='grid md:grid-cols-3 gap-4'>
-        {data?.map((diary : any, i) => (
+        {data?.length ? 
+        (data?.map((diary : any, i) => (
           <CardDiary 
           i={i}
           key={diary.id} 
@@ -28,7 +29,8 @@ const MyDiary = async () => {
           username={diary.username} 
           email={diary.email} 
           />
-        ))}
+        ))) : <p className='text-xl md:text-4xl font-bold'>No Data Found</p>}
+        
       </div>
     </Wrapper>
   )

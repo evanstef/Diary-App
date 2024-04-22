@@ -34,7 +34,7 @@ const CardDiary = ({diary_id, avatar, content, username, email, i} : Diary) => {
                 <div className="modal-box">
                   <h3 className="text-lg font-bold">Are you sure want to delete this diary !!</h3>
                   <p className="py-4">Click Outside To Exit or Cancel</p>
-                  <button onClick={() => deleteDiary(diary_id)} className='bg-orange-600 px-3 py-1 rounded-lg hover:bg-orange-400 font-semibold hover:text-slate-900 duration-300 text-white ml-[400px]'>Yes</button>
+                  <button onClick={() => deleteDiary(diary_id)} className='bg-orange-600 px-3 py-1 rounded-lg hover:bg-orange-400 font-semibold hover:text-slate-900 duration-300 text-white md:ml-[400px]'>Yes</button>
                 </div>
                 <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
               </div>
