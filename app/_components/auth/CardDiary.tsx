@@ -14,11 +14,11 @@ const CardDiary = ({diary_id, avatar, content, username, email, i} : Diary) => {
   
 
   return (
-        <motion.div initial={{opacity: 0,y:200}} animate={{opacity: 1, y:0}} transition={{duration: 1, delay:0.3 * i}} className='card card-body card-bordered rounded-xl bg-base-300 cursor-pointer hover:scale-105 hover:bg-gray-500 hover:shadow-xl duration-300 h-60'>
+        <motion.div initial={{opacity: 0,y:200}} animate={{opacity: 1, y:0}} transition={{duration: 1, delay:0.3 * i}} className='card card-body card-bordered rounded-xl overflow-x-hidden bg-base-300 cursor-pointer hover:scale-105 hover:bg-gray-500 hover:shadow-xl duration-300 h-60'>
             <div className='flex items-center gap-4 border-b-2 pb-2'>
                <h1>From<span className='ml-6'>:</span></h1>
                <Image src={avatar as string} alt={avatar as string} width={50} height={50} className='rounded-full' />
-               <p>{username || email}</p>
+               <p className='line-clamp-1'>{username || email}</p>
             </div>
             <h1 className='text-center text-lg font-bold'>Diary</h1>
             <div className='text-sm overflow-y-auto max-h-14'>
