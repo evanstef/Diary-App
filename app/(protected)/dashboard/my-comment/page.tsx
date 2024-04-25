@@ -26,9 +26,7 @@ const CommentPage = async () => {
         <div className='divider'></div>
         {commentsByEmails.map((comment) => {
             return (
-
-                <CommentDashboardList comment_id={comment.comment_id} content={comment.content} avatar={comment.avatar} username={comment.username} email={comment.email} />
-                
+                <CommentDashboardList key={comment.comment_id} comment_id={comment.comment_id} content={comment.content} avatar={comment.avatar} username={comment.username} email={comment.email} /> 
                 )
             })}
         <div className='divider'></div>
