@@ -5,8 +5,6 @@ import { supabase } from '@/utils/supabase'
 const CardDiarys = async () => {
     const {data, error} = await supabase.from('diary-evan').select().order('created_at', {ascending: false});
 
-    console.log(data);
-    
     
     if (error) return <p className='text-center'>Please Reload The Page...</p>;
     

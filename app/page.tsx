@@ -8,8 +8,6 @@ export const revalidate = 0
 
 export default async function Home () {
   const {data} = await supabase.from("diary-evan").select()
-  console.log(data);
-  
     
   return (
       <Wrapper title="The Diary App">

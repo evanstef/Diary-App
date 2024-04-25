@@ -10,11 +10,9 @@ const MyDiary = async () => {
 
   const {data, error} = await supabase.from('diary-evan').select().order('created_at', {ascending : false}).eq('email', email)
 
-  if (error) return null
+  if (error) return <p>Please Reload The Page...</p>
 
-  console.log(data);
   
-
   return (
     <Wrapper title='My Diary'>
       <div className='grid md:grid-cols-3 gap-4'>

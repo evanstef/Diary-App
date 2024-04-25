@@ -9,5 +9,9 @@ export default async function deleteDiary(diary_id : number | undefined) {
         .delete()
         .eq("id", diary_id)
 
+        console.log(diary_id);
+        
+        if(error) return null
+
         redirect("/dashboard/my-diary")
 }

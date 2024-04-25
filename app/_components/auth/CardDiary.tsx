@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { Diary } from '@/utils/supabase'
 import Link from 'next/link'
@@ -9,7 +9,17 @@ import {motion} from 'framer-motion'
 import deleteDiary from '@/action/deleteDiary'
 
 const CardDiary = ({diary_id, avatar, content, username, email, i} : Diary) => {
+  const [open,setOpen] = useState(false)
   const pathName = usePathname()
+
+  function handle () {
+    setOpen(!open)
+  }
+
+  function handleDelete(diary_id : any) {
+    deleteDiary(diary_id)
+    setOpen(!open)
+  }
 
   
 
@@ -25,20 +35,18 @@ const CardDiary = ({diary_id, avatar, content, username, email, i} : Diary) => {
               {content}
             </div>
             {pathName === '/dashboard/my-diary' &&  
-            <div className='absolute top-0 right-0 mt-2 mr-2'>
-             {/* The button to open modal */}
-              <label htmlFor="my_modal_7" className="btn hover:btn-active">Delete</label>
-              {/* Put this part before </body> tag */}
-              <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-              <div className="modal" role="dialog">
-                <div className="modal-box">
-                  <h3 className="text-lg font-bold">Are you sure want to delete this diary !!</h3>
-                  <p className="py-4">Click Outside To Exit or Cancel</p>
-                  <button onClick={() => deleteDiary(diary_id)} className='bg-orange-600 px-3 py-1 rounded-lg hover:bg-orange-400 font-semibold hover:text-slate-900 duration-300 text-white md:ml-[400px]'>Yes</button>
+            <div className='absolute top-0 right-0 mr-2 mt-2'>
+                <button className='btn btn-warning' onClick={() => handle()}>
+                 Delete
+                </button>
+                <div className={`modal border border-red-600 modal-middle ${open ? 'modal-open' : ''} w-[500px] h-32 mx-auto my-auto card card-body`}>
+                    <h1 className='font-bold text-xl'>Are You Sure Want To Delete This Diary ? </h1>
+                    <div className='space-x-2'>
+                        <button className='btn btn-active' onClick={() => handle()}>No</button>
+                        <button className='btn btn-warning' onClick={() => handleDelete(diary_id)}>Yes</button>
+                    </div>
                 </div>
-                <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
-              </div>
-            </div>          
+            </div>         
             } 
             <Link className='absolute bottom-0 mb-2 right-0 mr-5 bg-slate-500 rounded-lg px-3  font-bold hover:bg-slate-400 hover:text-slate-900 duration-300 ease-in-out' href={`/diary/${diary_id}`}>Comment</Link>
         </motion.div>

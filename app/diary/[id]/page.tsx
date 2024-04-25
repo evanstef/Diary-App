@@ -28,12 +28,12 @@ const page = async ({params} : ParamsProps) => {
   
   return (
     <Wrapper title='Detail Diary'>
-      <div className='flex justify-center gap-11 items-center mb-10'>
-          <Image className='rounded-lg w-28 h-28 md:w-72 md:h-72' src={data.avatar} alt={data.avatar} width={300} height={300} />
+      <div className='flex flex-col md:flex-row justify-center gap-11 items-center mb-10'>
+          <Image className='rounded-lg w-32 h-32 md:w-72 md:h-72' src={data.avatar} alt={data.avatar} width={300} height={300} />
         <div className='md:text-xl'>
-          <p>Tanggal  : posted at {posted_at}</p>
-          <p>Name     : <i>~ {data.username || data.email}</i></p>
-          <p>Content  : {data.content}</p>
+          <p><span className='font-bold text-lg'>Tanggal</span>  : posted at {posted_at}</p>
+          <p><span className='font-bold text-lg'>Name</span>     : <i>~ {data.username || data.email}</i></p>
+          <p><span className='font-bold text-lg'>Content</span>  : {data.content}</p>
         </div>
       </div>
       <CommentList diary_id={data.id}/> 
