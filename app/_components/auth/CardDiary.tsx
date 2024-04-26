@@ -39,8 +39,8 @@ const CardDiary = ({diary_id, avatar, content, username, email, i} : Diary) => {
                 <button className='btn btn-warning' onClick={() => handle()}>
                  Delete
                 </button>
-                <div className={`modal border border-red-600 modal-middle ${open ? 'modal-open' : ''} w-[500px] h-32 mx-auto my-auto card card-body`}>
-                    <h1 className='font-bold text-xl'>Are You Sure Want To Delete This Diary ? </h1>
+                <div className={`w-[350px] h-36 modal border border-red-600 modal-middle ${open ? 'modal-open' : ''} md:w-[500px] md:h-32 mx-auto my-auto card card-body`}>
+                    <h1 className='font-bold text-center text-lg md:text-xl'>Are You Sure Want To Delete This Diary ? </h1>
                     <div className='space-x-2'>
                         <button className='btn btn-active' onClick={() => handle()}>No</button>
                         <button className='btn btn-warning' onClick={() => handleDelete(diary_id)}>Yes</button>
