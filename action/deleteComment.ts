@@ -16,7 +16,7 @@ export const deleteComment = async (comment_id : string, diary_id? : string) => 
     // let message = "Successfully Deleted"
     data?.comments.map((comment : Comments) => {
         if (comment.email !== user.email) {
-            return {error : 'Cannot Deleted'}
+            return {error : 'Deleted'}
             }  
         }
     )
