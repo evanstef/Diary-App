@@ -24,9 +24,9 @@ const CommentPage = async () => {
     <Wrapper title={commentsByEmails.length > 0 ? 'All Your Comment' : 'Data Comment Not Found'}>
       <div className='flex flex-col gap-4'>
         <div className='divider'></div>
-        {commentsByEmails.map((comment) => {
+        {commentsByEmails.map((comment, i) => {
             return (
-                <CommentDashboardList key={comment.comment_id} comment_id={comment.comment_id} content={comment.content} avatar={comment.avatar} username={comment.username} email={comment.email} /> 
+                <CommentDashboardList i={i} key={comment.comment_id} comment_id={comment.comment_id} content={comment.content} avatar={comment.avatar} username={comment.username} email={comment.email} /> 
                 )
             })}
         <div className='divider'></div>
