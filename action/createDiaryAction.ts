@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation"
 import { getUserData } from "@/utils/clerk"
 import { Diary, supabase } from "@/utils/supabase"
+import { revalidatePath } from "next/cache"
 
 export const create = async (values : FormData) => {
     const content = values.get('content') as string
@@ -11,5 +12,5 @@ export const create = async (values : FormData) => {
     
     await supabase.from("diary-evan").insert(data)
     
-    redirect("/dashboard/my-diary")
+    revalidatePath("/dashboard/my-diary")
 }

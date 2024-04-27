@@ -2,6 +2,8 @@
 
 import { supabase } from "@/utils/supabase";
 import { redirect } from "next/navigation";
+import { revalidatePath } from 'next/cache'
+
 
 export default async function deleteDiary(diary_id : number | undefined) {
     const { error } = await supabase
@@ -13,5 +15,5 @@ export default async function deleteDiary(diary_id : number | undefined) {
         
         if(error) return null
 
-        redirect("/dashboard/my-diary")
+        revalidatePath('/dashboard/my-diary')
 }

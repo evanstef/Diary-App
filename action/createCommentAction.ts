@@ -4,6 +4,7 @@ import { getUserData } from "@/utils/clerk"
 import { Comments, supabase } from "@/utils/supabase"
 import { randomUUID } from "crypto"
 import { redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 
 export const createCommentAction = async (formData: FormData) => {
     const content = formData.get("content") as string
@@ -24,5 +25,5 @@ export const createCommentAction = async (formData: FormData) => {
 
     await supabase.from("diary-evan").update({ comments: newComment }).eq("id", diary_id)
 
-    redirect(`/diary/${diary_id}`)
+    revalidatePath(`/diary/${diary_id}`)
 }

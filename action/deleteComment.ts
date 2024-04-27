@@ -3,6 +3,7 @@
 import { getUserData } from "@/utils/clerk"
 import { Comments, supabase } from "@/utils/supabase"
 import { redirect } from "next/navigation"
+import { revalidatePath } from 'next/cache'
 import React from 'react'
 
 export const deleteComment = async (comment_id : string, diary_id? : string) => {
@@ -20,10 +21,6 @@ export const deleteComment = async (comment_id : string, diary_id? : string) => 
             }  
         }
     )
-
-    // if(message) {
-    //     return {message}
-    // }
     
     const newDataComment = data?.comments.filter((comment : Comments) => comment.comment_id !== comment_id)
     console.log(newDataComment);
@@ -34,7 +31,7 @@ export const deleteComment = async (comment_id : string, diary_id? : string) => 
         .eq("id", diary_id)
     
    
-    redirect(`/diary/${diary_id}`)
+    revalidatePath(`/diary/${diary_id}`)
 }
 
 
