@@ -13,5 +13,5 @@ export const create = async (values : FormData) => {
     
     await supabase.from("diary-evan").insert(data)
 
-    return redirect('/dashboard/my-diary')
+    return Response.redirect('/dashboard/my-diary')
 }
