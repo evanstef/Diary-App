@@ -5,6 +5,7 @@ import { getUserData } from "@/utils/clerk"
 import { Diary, supabase } from "@/utils/supabase"
 import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
+import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime"
 
 export const create = async (values : FormData) => {
     const content = values.get('content') as string
@@ -13,5 +14,5 @@ export const create = async (values : FormData) => {
     
     await supabase.from("diary-evan").insert(data)
 
-    return Response.redirect('/dashboard/my-diary')
+    redirect('/dashboard/my-diary')
 }
