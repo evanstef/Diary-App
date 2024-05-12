@@ -8,6 +8,7 @@ import { useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import React from 'react'
 import { currentUser } from '@clerk/nextjs/server'
+import GetPastTime from '@/app/_components/GetPastTime'
 
 type ParamsProps = {
     params : {
@@ -24,14 +25,16 @@ const page = async ({params} : ParamsProps) => {
     return <p>Please Reload The Page...</p>
   }
   
-  const posted_at = new Date(data.created_at).toLocaleDateString();
   
   return (
     <Wrapper title='Detail Diary'>
       <div className='flex flex-col md:flex-row justify-center gap-11 items-center mb-10'>
           <Image className='rounded-lg w-32 h-32 md:w-72 md:h-72' src={data.avatar} alt={data.avatar} width={300} height={300} />
         <div className='md:text-xl'>
-          <p><span className='font-bold text-lg'>Tanggal</span>  : posted at {posted_at}</p>
+          <div className='flex gap-2'>
+            <p className='font-bold text-lg'>DiPosting : </p>
+            <GetPastTime past_time={data.created_at} />
+          </div>
           <p><span className='font-bold text-lg'>Name</span>     : <i>~ {data.username || data.email}</i></p>
           <p><span className='font-bold text-lg'>Content</span>  : {data.content}</p>
         </div>

@@ -1,8 +1,11 @@
 import CardDiary from '@/app/_components/auth/CardDiary'
 import Wrapper from '@/app/_components/Wrapper'
+
 import { getUserData } from '@/utils/clerk'
 import { supabase } from '@/utils/supabase'
 import React from 'react'
+
+export const revalidate = 0
 
 
 const MyDiary = async () => {
